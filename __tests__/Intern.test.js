@@ -11,3 +11,14 @@ test('creates new intern object', () => {
     expect(intern.name).toBe('John Doe');
     expect(intern.school).toBe('AHS');
 });
+
+test('getSchool() and getRole() methods return appropriately', () => {
+    const employee = new Employee;
+    const intern = new Intern(employee, 'AHS');
+
+    const school = intern.getSchool();
+    const role = intern.getRole();
+
+    expect(school).toBe('AHS');
+    expect(role).toBe('Intern');
+});
