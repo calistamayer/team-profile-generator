@@ -1,7 +1,11 @@
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 
-inquirer.prompt([
+// initialize empty array to store all employees
+const employeeArr = [];
+
+// array of initial prompts (team manager)
+const managerPrompts = [
     {
         type: 'input',
         name: 'name',
@@ -22,4 +26,18 @@ inquirer.prompt([
         name: 'office',
         message: "Enter team manager's office number"
     }
-]);
+];
+
+// function to initialize program
+const init = () => {
+    // prompt user with managerPrompts
+    inquirer.prompt(managerPrompts).then((managerInfo) => {
+        const manager = new Manager;
+        manager.name = managerInfo.name;
+        manager.id = managerInfo.id;
+        manager.email = managerInfo.email;
+        manager.office = managerInfo.office;
+    });
+}
+
+init();
