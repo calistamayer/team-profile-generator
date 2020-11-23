@@ -11,3 +11,14 @@ test('creates new engineer object', () => {
     expect(engineer.name).toBe('John Doe');
     expect(engineer.github).toBe('ghub');
 });
+
+test('getGithub() and getRole() methods return appropriately', () => {
+    const employee = new Employee;
+    const engineer = new Engineer(employee, 'ghub');
+
+    github = engineer.getGithub();
+    role = engineer.getRole();
+
+    expect(github).toBe('ghub');
+    expect(role).toBe('Engineer');
+});
