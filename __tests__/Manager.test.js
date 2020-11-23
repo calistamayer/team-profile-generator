@@ -13,3 +13,12 @@ test('creates new manager object', () => {
     expect(manager.email).toBe('john@aol.com');
     expect(manager.office).toBe(1);
 });
+
+test("getRole() method returns 'Manager'", () => {
+    const employee = new Employee;
+    const manager = new Manager(employee, 1);
+
+    const role = manager.getRole();
+
+    expect(role).toBe('Manager');
+})
